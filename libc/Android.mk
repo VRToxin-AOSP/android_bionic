@@ -594,8 +594,7 @@ endif
 libc_common_cflags += \
     -Werror=pointer-to-int-cast \
     -Werror=int-to-pointer-cast \
-    -Werror=type-limits \
-    -Werror \
+    -Werror=type-limits
 
 ifeq ($(strip $(DEBUG_BIONIC_LIBC)),true)
   libc_common_cflags += -DDEBUG
@@ -630,7 +629,7 @@ endif
 
 # Define some common conlyflags
 libc_common_conlyflags := \
-    -std=gnu99
+    -std=gnu11
 
 # Define some common cppflags
 libc_common_cppflags := \
@@ -810,7 +809,9 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(libc_upstream_netbsd_src_files)
 LOCAL_CFLAGS := \
     $(libc_common_cflags) \
-    -Wno-sign-compare -Wno-uninitialized \
+    -Wno-sign-compare \
+    -Wno-uninitialized \
+    -Wno-unused-parameter \
     -DPOSIX_MISTAKE \
     -include netbsd-compat.h \
 

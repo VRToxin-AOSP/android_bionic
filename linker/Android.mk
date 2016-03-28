@@ -45,7 +45,7 @@ LOCAL_CFLAGS_arm += -D__work_around_b_19059885__
 LOCAL_CFLAGS_x86 += -D__work_around_b_19059885__
 
 LOCAL_CONLYFLAGS += \
-    -std=gnu99 \
+    -std=gnu11 \
 
 LOCAL_CPPFLAGS += \
     -Wold-style-cast \
