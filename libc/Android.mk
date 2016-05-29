@@ -585,14 +585,10 @@ libc_common_cflags := \
 use_clang := false
 
 # Try to catch typical 32-bit assumptions that break with 64-bit pointers.
-# -Wno-error=shift-negative-value is for SEMCOUNT_MINUS_ONE with gcc 6
-# -Wno-error=nonnull-compare is for a false positive in strftime.c with gcc 6
 libc_common_cflags += \
     -Werror=pointer-to-int-cast \
     -Werror=int-to-pointer-cast \
-    -Werror=type-limits \
-    -Wno-error=shift-negative-value \
-    -Wno-error=nonnull-compare
+    -Werror=type-limits
 
 ifeq ($(strip $(DEBUG_BIONIC_LIBC)),true)
   libc_common_cflags += -DDEBUG
